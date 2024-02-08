@@ -74,36 +74,132 @@ public class Assembler {
                 return "0000000000000000";
 
             case 1: // LDR r,x,address[,I] (load register from memory)
-                    // Opcode R  IX I Address
-                    // 000001 xx xx x xxxxx
+                // Opcode R  IX I Address
+                // 000001 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 2: // STR r,x,address[,I] (store register memory)
-                    // Opcode R  IX I Address
-                    // 000010 xx xx x xxxxx
+                // Opcode R  IX I Address
+                // 000010 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 3: // LDA r,x,address[,I] (load register with address)
-                    // Opcode R  IX I Address
-                    // 000011 xx xx x xxxxx
+                // Opcode R  IX I Address
+                // 000011 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 7: // JNE r,x,address[,I] (jump if not equal)
-                    // Opcode R  IX I Address
-                    // 000111 xx xx x xxxxx
+                // Opcode R  IX I Address
+                // 000111 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 8: // JCC cc,x,address[,I] (jump if condition code)
-                    // Opcode cc IX I Address
-                    // 001000 xx xx x xxxxx
+                // Opcode cc IX I Address
+                // 001000 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary condition code
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+            
+                return binaryMachineCodeBuilder.toString();
 
             case 12: // SOB r,x,address[,I] (subtract one and branch)
-                     // Opcode r  IX I Address
-                     // 001100 xx xx x xxxxx
+                // Opcode r  IX I Address
+                // 001100 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
+        
 
             case 13: // SOB r,x,address[,I] (subtract one and branch)
-                     // Opcode r  IX I Address
-                     // 001101 xx xx x xxxxx
+                // Opcode r  IX I Address
+                // 001101 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2)); // append binary general register
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2)); // append binary index register
+                if (assemblyComponentsNum == 5) { // I field exists
+                    binaryMachineCodeBuilder.append("1");
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5)); // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 14: // AMR r,x,address[,I] (add memory to register)
                      // Opcode r  IX I Address
                      // 001110 xx xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary general register (r)
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2));  // append binary index register (IX)
+                if (assemblyComponentsNum == 5) {
+                    binaryMachineCodeBuilder.append("1");  // I field exists
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }  // append I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[3], 5));  // append binary address
+                return binaryMachineCodeBuilder.toString();
 
             case 15: // SMR r,x,address[,I] (subtract memory from register)
                      // Opcode r  IX I Address
@@ -125,18 +221,66 @@ public class Assembler {
             case 4: // LDX x,address[,I] (load index register from memory)
                     // Opcode R  IX I Address
                     // 000100 00 xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append("00");  // no regular register field (R), filled with "00"
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary index register (IX)
+                if (assemblyComponentsNum == 4) {
+                    binaryMachineCodeBuilder.append("1");  // I field exists
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }  // append I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 5: // STX x,address[,I] (store index register to memory)
                     // Opcode R  IX I Address
                     // 000101 00 xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append("00");  // no regular register field (R), filled with "00"
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary index register (IX)
+                if (assemblyComponentsNum == 4) {
+                    binaryMachineCodeBuilder.append("1");  // I field exists
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }  // append I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary address
+
+                return binaryMachineCodeBuilder.toString();
 
             case 6: // JZ x,address[,I] (jump if zero)
                     // Opcode R  IX I Address
                     // 000110 00 xx x xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append("00");  // no source register field (R), filled with "00"
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary index register (IX)
+                if (assemblyComponentsNum == 4) {
+                    binaryMachineCodeBuilder.append("1");  // I field exists
+                } else {
+                    binaryMachineCodeBuilder.append("0");
+                }  // append I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary address
+                return binaryMachineCodeBuilder.toString();
 
             case 9: // JMA x,address[,I] (unconditional jump to address)
                     // Opcode R  IX I Address
                     // 001001 00 xx x xxxxx
+
+                    binaryMachineCodeBuilder = new StringBuilder();
+                    binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                    binaryMachineCodeBuilder.append("00");  // no source register field (R), filled with "00"
+                    binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary index register (IX)
+                    if (assemblyComponentsNum == 4) {
+                        binaryMachineCodeBuilder.append("1");  // I field exists
+                    } else {
+                        binaryMachineCodeBuilder.append("0");
+                    }  // append I
+                    binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary address
+
+                    return binaryMachineCodeBuilder.toString();
 
             case 10: // JSR x,address[,I] (jump and save return address)
                     // Opcode R  IX I Address
@@ -158,13 +302,21 @@ public class Assembler {
                      // Opcode R  IX I Address
                      // 100100 xx 00 0 00000
                      // 100100 01 00 0 00000
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary regular register
+                binaryMachineCodeBuilder.append("00");  // no IX, filled with "00"
+                binaryMachineCodeBuilder.append("0");   // no I, filled with "0"
+                binaryMachineCodeBuilder.append("00000");  // no address, filled with "00000"
+                return binaryMachineCodeBuilder.toString();
 
-            case 23: // NOT rx (logical Not of register to register)
-                     // Opcode Rx Ry ------
-                     // 010111 xx 00 000000
+                case 23: // NOT rx (logical Not of register to register)
+                        // Opcode Rx Ry ------
+                        // 010111 xx 00 000000
                 binaryMachineCodeBuilder = new StringBuilder();
                 binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
                 binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1],2)); // append binary regular register
+                binaryMachineCodeBuilder.append("00");  // no destination register field (Ry), filled with "00"
                 binaryMachineCodeBuilder.append("00000000"); // no IX, I, Address, filled with "00000000"
 
                 return binaryMachineCodeBuilder.toString();
@@ -176,23 +328,55 @@ public class Assembler {
                 binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
                 binaryMachineCodeBuilder.append("1100000"); // append regular register, ignored IX and I
                 binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1],5)); // append binary address
+
                 return binaryMachineCodeBuilder.toString();
 
             case 16: // AIR r,Immed (add immediate to register)
-                     // Opcode R  IX I Address
-                     // 010000 xx 00 0 xxxxx
+                // Opcode R  IX I Address
+                // 010000 xx 00 0 xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary register (R)
+                binaryMachineCodeBuilder.append("00");  // two zeros for IX
+                binaryMachineCodeBuilder.append("0");  // zero for I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary immediate value
+
+                return binaryMachineCodeBuilder.toString();
 
             case 17: // SIR r,Immed
-                     // Opcode R  IX I Address
-                     // 010001 xx 00 0 xxxxx
+                // Opcode R  IX I Address
+                // 010001 xx 00 0 xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary register (R)
+                binaryMachineCodeBuilder.append("00");  // two zeros for IX
+                binaryMachineCodeBuilder.append("0");  // zero for I
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary immediate value
+
+                return binaryMachineCodeBuilder.toString();
 
             case 26: // IN r,devid (input character to register from device)
                 // Opcode R  --- DevID
                 // 011010 xx 000 xxxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary register (R)
+                binaryMachineCodeBuilder.append("000");  // three zeros
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary device ID (DevID)
+
+                return binaryMachineCodeBuilder.toString();
 
             case 27: // OUT r,devid (ouput character to device from register)
                 // Opcode R  --- DevID
                 // 011011 xx 000 xxxxx
+
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary register (R)
+                binaryMachineCodeBuilder.append("000");  // three zeros
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 5));  // append binary device ID (DevID)
+                
+                return binaryMachineCodeBuilder.toString();
 
             case 28: // CHK r,devid (check device status to register)
                 // Opcode R  --- DevID
@@ -203,27 +387,56 @@ public class Assembler {
                 binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1],2)); // append binary regular register
                 binaryMachineCodeBuilder.append("000"); // ignored IX and I
                 binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2],5)); // append binary address / device id
+
                 return binaryMachineCodeBuilder.toString();
 
             case 18: // MLT rx,ry (multiply register by register)
-                     // Opcode Rx Ry ------
-                     // 010010 xx xx 000000
+                // Opcode Rx Ry ------
+                // 010010 xx xx 000000
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary Rx
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2));  // append binary Ry
+                binaryMachineCodeBuilder.append("000000");  // six zeros
+
+                return binaryMachineCodeBuilder.toString();
 
             case 19: // DVD rx,ry (divide register by register)
-                     // Opcode Rx Ry ------
-                     // 010011 xx xx 000000
+                // Opcode Rx Ry ------
+                // 010011 xx xx 000000
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary Rx
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2));  // append binary Ry
+                binaryMachineCodeBuilder.append("000000");  // six zeros
+
+                return binaryMachineCodeBuilder.toString();
 
             case 20: // TRR rx,ry (test the equity of register and register)
-                     // Opcode Rx Ry ------
-                     // 010100 xx xx 000000
+                // Opcode Rx Ry ------
+                // 010100 xx xx 000000
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary Rx
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2));  // append binary Ry
+                binaryMachineCodeBuilder.append("000000");  // six zeros
+
+            return binaryMachineCodeBuilder.toString();
 
             case 21: // AND rx,ry (logical And of register and register)
-                     // Opcode Rx Ry ------
-                     // 010101 xx xx 000000
+                // Opcode Rx Ry ------
+                // 010101 xx xx 000000
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary Rx
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 2));  // append binary Ry
+                binaryMachineCodeBuilder.append("000000");  // six zeros
+
+                return binaryMachineCodeBuilder.toString();
 
             case 22: // ORR rx,ry (logical Or of register and register)
-                     // Opcode Rx Ry ------
-                     // 010110 xx xx 000000
+                // Opcode Rx Ry ------
+                // 010110 xx xx 000000
                 binaryMachineCodeBuilder = new StringBuilder();
                 binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
                 binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1],2)); // append binary Rx
@@ -233,12 +446,21 @@ public class Assembler {
                 return binaryMachineCodeBuilder.toString();
 
             case 24: // SRC r,count,L/R,A/L (shift register by count)
-                     // Opcode R  A/L L/R -- Count
-                     // 011000 xx x   x   00 xxxx
+                // Opcode R  A/L L/R -- Count
+                // 011000 xx x   x   00 xxxx
+                binaryMachineCodeBuilder = new StringBuilder();
+                binaryMachineCodeBuilder.append(opcodeBinaryString);  // append binary opcode
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[1], 2));  // append binary regular register (R)
+                binaryMachineCodeBuilder.append(assemblyComponents[4]);  // append A/L (Arithmetic/Logical)
+                binaryMachineCodeBuilder.append(assemblyComponents[3]);  // append L/R (Left/Right)
+                binaryMachineCodeBuilder.append("00");  // two zeros
+                binaryMachineCodeBuilder.append(PosNotationTools.binStrFromDecStr(assemblyComponents[2], 4));  // append binary count
+
+                return binaryMachineCodeBuilder.toString();
 
             case 25: // RRC r,count,L/R,A/L (rotate register by count)
-                     // Opcode R  A/L L/R -- Count
-                     // 011001 xx x   x   00 xxxx
+                // Opcode R  A/L L/R -- Count
+                // 011001 xx x   x   00 xxxx
 
                 binaryMachineCodeBuilder = new StringBuilder();
                 binaryMachineCodeBuilder.append(opcodeBinaryString); // append binary opcode
@@ -312,9 +534,11 @@ public class Assembler {
                 default: {
                     String octAddressStr = PosNotationTools.octStrFromInteger(nextInstructionAddress, 6);
                     String octInstrMachineCode = octMachineCodeConvertedFromAssembly(instr);
+                    // Writing to load file
                     String loadLine = String.format("%-12s", octAddressStr) + octInstrMachineCode;
                     loadFileOutputStream.write((loadLine + '\n').getBytes());
 
+                    // Writing to listing file
                     String listingLine = loadLine + "      " + String.format("%-24s", instr) + comment;
                     listingFileOutputStream.write((listingLine + '\n').getBytes());
 
@@ -322,6 +546,9 @@ public class Assembler {
                     break;
                 }
             }
+            // Close the output streams
+            listingFileOutputStream.close();
+            loadFileOutputStream.close();
 
         }
 
