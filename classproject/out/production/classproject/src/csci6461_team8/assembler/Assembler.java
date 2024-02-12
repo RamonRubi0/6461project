@@ -257,17 +257,48 @@ public class Assembler {
         return PosNotationTools.octStrFromBinStr(binMachineCodeConvertedFromAssembly(assembly),6);
     }
 
-    public static void assembly(String assemblySrcFilePath, String listingFilePath, String loadFilePath) throws IOException{
-        List<String> assemblyLines = Files.readAllLines(Paths.get(assemblySrcFilePath)); // read all the lines in assembly source file
+//    public static void assembly(String assemblySrcFilePath, String listingFilePath, String loadFilePath) throws IOException{
+//        List<String> assemblyLines = Files.readAllLines(Paths.get(assemblySrcFilePath)); // read all the lines in assembly source file
+//        int assemblyLinesNum = assemblyLines.size();
+//
+//        java.io.OutputStream listingFileOutputStream = Files.newOutputStream(Paths.get(listingFilePath));
+//        java.io.OutputStream loadFileOutputStream = Files.newOutputStream(Paths.get(loadFilePath));
+//
+//        // processing the first line (LOC X)
+//        String[] componentsOfOneLine = assemblyLines.get(0).split("\\s+");
+//        int startAddress = Integer.parseInt(componentsOfOneLine[2]);
+//        listingFileOutputStream.write(assemblyLines.get(0).getBytes());
+//
+//            for(int i = 1; i <= assemblyLinesNum - 3; i++){
+//                String octInstructionAddressStr = PosNotationTools.octStrFromInteger(startAddress + i - 1, 6);
+//                String[] instructionComment =
+//                String octInstructionMachineCodeStr = octMachineCodeConvertedFromAssembly(assemblyInstructions.get(i));
+//                listingFileOutputStream.write((octInstructionMachineCodeStr + '\t' + octInstructionMachineCodeStr + assemblyInstructions.get(i)).getBytes());
+//            }
+//
+//            // processing the last two lines
+//            componentsOfOneLine = assemblyInstructions.get(0).split("\\s+");
+//            int endAddress = Integer.parseInt(componentsOfOneLine[1]);
+//            listingFileOutputStream.write(assemblyInstructions.get(assemblyLinesNum - 2).getBytes());
+//
+//            String octInstructionAddressStr = PosNotationTools.octStrFromInteger(endAddress, 6);
+//            listingFileOutputStream.write((octInstructionAddressStr + '\t' + "000000" + assemblyInstructions.get(assemblyLinesNum - 1)).getBytes());
+//
+//    }
 
-        java.io.OutputStream listingFileOutputStream = Files.newOutputStream(Paths.get(listingFilePath));
-        java.io.OutputStream loadFileOutputStream = Files.newOutputStream(Paths.get(loadFilePath));
 
+    public static void main(String[] args) throws IOException{
+//        String inpath = "/Users/yiming/Desktop/testcase/in.txt";
+//        String listing = "/Users/yiming/Desktop/testcase/listing.txt";
+//        String emm = "/Users/yiming/Desktop/testcase/emm.txt";
+//        assembly(inpath, listing, emm);
 
-    }
+        String test = " LOC 6 ;;xxx";
+        int commentStartIdx = test.indexOf(';');
+        System.out.println(commentStartIdx);
 
-
-    public static void main(String[] args){
+        System.out.println(test.substring(0,commentStartIdx));
+        System.out.println(test.substring(commentStartIdx + 1));
 
     }
 
